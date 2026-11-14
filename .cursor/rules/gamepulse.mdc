@@ -1,0 +1,18 @@
+---
+description: GamePulse Cloud project rules
+alwaysApply: true
+---
+
+1. PROJECT_SPEC.md is the source of truth. Do not change names, columns, constants, file locations or numbers from it. If the spec is unclear or seems wrong, stop and ask. Do not decide on your own.
+2. Do only the current task. Do not start later tasks, add features, or move or rename files that the task does not list.
+3. Before writing code, list the existing files the task touches and read them. Reuse existing helpers (common/storage.py, common/metrics.py, reference_data.py, config.py) instead of writing new ones.
+4. Make targeted edits. Do not rewrite a whole existing file unless the task says so.
+5. Never say a test, command, benchmark or cloud action worked unless you ran it in this session and saw the output. Paste the real output. If you cannot run something (it needs AWS keys, or Docker access), say so and give the exact command for the human to run. Never invent numbers or write example results as if they were measured.
+6. Never write keys, tokens or passwords into any file except .env, which is gitignored. .env.example has empty values. No secrets in code, tests, logs or docs.
+7. Python 3.11. Type hints on function signatures. Standard library first. No new dependencies, all versions are pinned in requirements/. No global random module. No print() in library code, use get_logger.
+8. Spark: no Python UDFs, no collect() or toPandas() on event-sized data, validation rules only through the add_reason helper in rules.py, never read and overwrite the same path in one job.
+9. Every task has tests. Run them. Never weaken, skip or delete a test to make it pass. Fix the code.
+10. Style: write like a normal developer. No emojis anywhere, including docs and commit messages. No banner or divider comments, no comments that repeat the code, docstrings of at most 3 lines. No marketing words in docs such as robust, seamless, powerful, comprehensive, leverage. Commit messages are short lowercase imperative, for example add match generator.
+11. src/gamepulse/__init__.py stays empty.
+12. All commands run in the runner container through make targets. Do not install anything on the host.
+13. When the task is finished: run the tests, update PROJECT_HANDOFF.md, and stop.

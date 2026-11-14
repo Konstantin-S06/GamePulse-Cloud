@@ -1,0 +1,13 @@
+data/
+.env
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.venv/
+airflow/logs/
+terraform/.terraform/
+terraform/*.tfstate
+terraform/*.tfstate.backup
+terraform/terraform.tfvars
+benchmarks/results/tmp/
+.DS_Store

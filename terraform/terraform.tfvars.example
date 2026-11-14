@@ -1,0 +1,3 @@
+aws_region   = "us-east-1"
+bucket_suffix = "your-unique-suffix"
+budget_email  = "you@example.com"

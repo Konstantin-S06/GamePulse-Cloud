@@ -1,0 +1,11 @@
+name: local_vs_cluster
+description: Compare local Spark master versus the compose cluster (one machine).
+variants:
+  - label: local_2
+    spark_master: local[2]
+    spark_cores_max: 2
+    spark_shuffle_partitions: 8
+  - label: cluster
+    spark_master: spark://spark-master:7077
+    spark_cores_max: 4
+    spark_shuffle_partitions: 8

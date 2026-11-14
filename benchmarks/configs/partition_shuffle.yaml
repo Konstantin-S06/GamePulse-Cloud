@@ -1,0 +1,9 @@
+name: partition_shuffle
+description: Compare Silver and Gold runtime at different shuffle partition counts.
+variants:
+  - label: shuffle_4
+    spark_shuffle_partitions: 4
+  - label: shuffle_8
+    spark_shuffle_partitions: 8
+  - label: shuffle_16
+    spark_shuffle_partitions: 16
